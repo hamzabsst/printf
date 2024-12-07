@@ -3,20 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:16:06 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/03 20:30:18 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:08:50 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int	printf_format(char specifier, va_list arg)
 {
+	int	count;
+
+	count = 0;
+		if (specifier == 'c')
+			count += ft_putchar(va_arg(arg, int));
+		else if (specifier == 's')
+			count += ft_putstr(va_arg(arg, char *));
+		else if (specifier == 'd' || specifier == 'i')
+			count += ft_putnbr(va_arg(arg, int));
+		else if (specifier == 'u')
+			count += ft_putunsignbr(va_arg(arg, unsigned int));
+/* 		else if (specifier == 'x')
+			ft_putchar(va_arg(arg, int));
+		else if (specifier == 'X')
+			ft_putchar(va_arg(arg, int));
+		else if (specifier == 'p')
+			(va_arg(arg, int)); */
+		else if (specifier == '%')
+			count += ft_putchar('%');
+		return (count);
+}
+int	ft_printf(const char *format, ...)
+{
+	va_list	arg;
+	int		count;
+	int		i;
+
+	va_start(arg, format);
+	count = 0;
+	i = 0;
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			printf_format(format[i + 1], arg);
+		}
+	}
 
 }
 int main()
 {
-	printf("%d", 11);
+	printf("%s",  "hamza");
 }

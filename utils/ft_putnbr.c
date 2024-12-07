@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 20:19:31 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/06 15:05:06 by hbousset         ###   ########.fr       */
+/*   Created: 2024/12/03 20:38:05 by hbousset          #+#    #+#             */
+/*   Updated: 2024/12/05 10:01:04 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdio.h>
+int	ft_putnbr(int nb)
+{
+	int	size;
 
-int	ft_printf(const char *, ...);
-int	ft_putchar(char c);
-int	ft_strlen(char *str);
-int	ft_putstr(char *str);
-int	ft_putnbr(int nb);
-int	ft_putunsignbr(int nb);
-
-
-#endif
+	size = 0;
+	if (nb == -2147483648)
+		return (write(1, "-2147483648", 11));
+	else if (nb < 0)
+	{
+		nb = -nb;
+		size = size + write(1, "-", 1);
+		size = size + ft_putnbr(nb);
+	}
+	else if (nb > 9)
+	{
+		size = size + ft_putnbr(nb / 10);
+		size = size + ft_putchar((nb % 10) + 48);
+	}
+	else
+		size = size + ft_putchar(nb + 48);
+	return (size);
+}
