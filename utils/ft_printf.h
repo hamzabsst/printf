@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:19:31 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/06 15:05:06 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:25:01 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	ft_strlen(char *str);
 int	ft_putstr(char *str);
 int	ft_putnbr(int nb);
 int	ft_putunsignbr(int nb);
-
+int	ft_puthexa(unsigned int nb);
 
 #endif
