@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa.c                                       :+:      :+:    :+:   */
+/*   ft_putx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:14:14 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/11 11:26:54 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:24:59 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_putjexx(unsigned int n, char format)
 {
-	return (write(1, &c, 1));
-}
-int	ft_puthexa(unsigned int nb)
-{
-	int	size;
-
-	size = 0;
-	if (nb < 16)
+	char	*base;
+	int		count;
+	count = 0;
+	if (n == 0)
 	{
-		if (nb < 10)
-			size = size + ft_putchar(nb + '0');
-		else
-			size = size + ft_putchar(nb - 10 + 'a');
+		count += write(1, "0", 1);
+		return (count);
 	}
+	if (format == 'X')
+		base = "0123456789ABCDEF";
 	else
+		base = "0123456789abcdef";
+	if (n >= 16)
 	{
-		size = size + ft_puthexa(nb / 16);
-		size = size + ft_puthexa(nb % 16);
+		count += ft_puthex(n / 16, format);
 	}
-	return (size);
-}
-int main()
-{
-	ft_puthexa(16);
+	count += ft_putchar(base[n % 16]);
+	return (count);
 }
