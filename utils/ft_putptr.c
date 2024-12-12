@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 11:01:38 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/11 20:05:35 by hbousset         ###   ########.fr       */
+/*   Created: 2024/12/11 20:07:56 by hbousset          #+#    #+#             */
+/*   Updated: 2024/12/12 10:08:44 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *str)
+int ft_putptr(void *ptr)
 {
-	int	i;
 	int	count;
 
-	i = 0;
 	count = 0;
-	 if (!str)
-	 	return (ft_putstr("(null)"));
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-		count++;
-	}
+
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	count += ft_putstr("0x");
+	count += ft_puthex((unsigned long) ptr, 'x');
 	return (count);
 }
+/* int main()
+{
+	char *str = "hamza";
+	printf("%p\n", str);
+	ft_putptr (str);
+} */

@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:16:06 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/06 15:08:50 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:10:21 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ int	printf_format(char specifier, va_list arg)
 			count += ft_putnbr(va_arg(arg, int));
 		else if (specifier == 'u')
 			count += ft_putunsignbr(va_arg(arg, unsigned int));
-/* 		else if (specifier == 'x')
-			ft_putchar(va_arg(arg, int));
-		else if (specifier == 'X')
-			ft_putchar(va_arg(arg, int));
+		else if (specifier == 'x' || specifier == 'X')
+			count += ft_puthex(va_arg(arg, unsigned int), specifier);
 		else if (specifier == 'p')
-			(va_arg(arg, int)); */
+			ft_putptr(va_arg(arg, void *));
 		else if (specifier == '%')
 			count += ft_putchar('%');
 		return (count);

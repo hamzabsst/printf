@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putx.c                                          :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:14:14 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/11 14:24:59 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:04:20 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putjexx(unsigned int n, char format)
+int	ft_puthex(unsigned long n, char format)
 {
 	char	*base;
 	int		count;
+
 	count = 0;
 	if (n == 0)
 	{
