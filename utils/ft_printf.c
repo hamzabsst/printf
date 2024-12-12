@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:16:06 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/12 19:09:06 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:27:00 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	printf_format(char specifier, va_list arg)
 		else if (specifier == 'x' || specifier == 'X')
 			count += ft_puthex(va_arg(arg, unsigned int), specifier);
 		else if (specifier == 'p')
-			count += ft_putptr(va_arg(arg, void *));
+			ft_putptr(va_arg(arg, void *));
 		else if (specifier == '%')
 			count += ft_putchar('%');
 		return (count);
@@ -39,8 +39,6 @@ int	ft_printf(const char *format, ...)
 	int		count;
 	int		i;
 
-	if (format == NULL)
-		return (-1);
 	va_start(arg, format);
 	count = 0;
 	i = 0;
@@ -48,19 +46,13 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			count += printf_format(format[i + 1], arg);
-			i++;
-		}
-		else
-		{
-			count += ft_putchar(format[i]);
+			count = printf_format(format[i + 1], arg);
 		}
 		i++;
 	}
-	va_end(arg);
-	return (count);
+
 }
 int main()
 {
-	ft_printf("%d",ft_printf(NULL));
+	ft_printf("%d",12);
 }
