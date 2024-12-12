@@ -6,18 +6,17 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 20:07:56 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/12 10:08:44 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:37:50 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putptr(void *ptr)
+int	ft_putptr(void *ptr)
 {
 	int	count;
 
 	count = 0;
-
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	count += ft_putstr("0x");

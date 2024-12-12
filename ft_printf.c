@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:16:06 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/12 19:09:06 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:36:49 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,23 @@ int	printf_format(char specifier, va_list arg)
 	int	count;
 
 	count = 0;
-		if (specifier == 'c')
-			count += ft_putchar(va_arg(arg, int));
-		else if (specifier == 's')
-			count += ft_putstr(va_arg(arg, char *));
-		else if (specifier == 'd' || specifier == 'i')
-			count += ft_putnbr(va_arg(arg, int));
-		else if (specifier == 'u')
-			count += ft_putunsignbr(va_arg(arg, unsigned int));
-		else if (specifier == 'x' || specifier == 'X')
-			count += ft_puthex(va_arg(arg, unsigned int), specifier);
-		else if (specifier == 'p')
-			count += ft_putptr(va_arg(arg, void *));
-		else if (specifier == '%')
-			count += ft_putchar('%');
-		return (count);
+	if (specifier == 'c')
+		count += ft_putchar(va_arg(arg, int));
+	else if (specifier == 's')
+		count += ft_putstr(va_arg(arg, char *));
+	else if (specifier == 'd' || specifier == 'i')
+		count += ft_putnbr(va_arg(arg, int));
+	else if (specifier == 'u')
+		count += ft_putunsignbr(va_arg(arg, unsigned int));
+	else if (specifier == 'x' || specifier == 'X')
+		count += ft_puthex(va_arg(arg, unsigned int), specifier);
+	else if (specifier == 'p')
+		count += ft_putptr(va_arg(arg, void *));
+	else if (specifier == '%')
+		count += ft_putchar('%');
+	return (count);
 }
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	arg;
@@ -60,7 +61,7 @@ int	ft_printf(const char *format, ...)
 	va_end(arg);
 	return (count);
 }
-int main()
+/* int main()
 {
 	ft_printf("%d",ft_printf(NULL));
-}
+} */

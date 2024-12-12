@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:01:38 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/11 20:05:35 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:38:12 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_putstr(char *str)
 
 	i = 0;
 	count = 0;
-	 if (!str)
-	 	return (ft_putstr("(null)"));
+	if (!str)
+		return (ft_putstr("(null)"));
 	while (str[i])
 	{
 		ft_putchar(str[i]);
