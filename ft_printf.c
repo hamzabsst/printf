@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:16:06 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/13 11:50:22 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/13 12:21:22 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,19 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				return (-1);
 			count += printf_format(format[i + 1], arg);
 			i++;
 		}
 		else
-		{
 			count += ft_putchar(format[i]);
-		}
 		i++;
 	}
 	va_end(arg);
 	return (count);
 }
+/* int main()
+{
+	ft_printf("%d", ft_printf("%d"));
+} */
