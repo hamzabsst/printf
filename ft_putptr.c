@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 20:07:56 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/12 19:37:50 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/13 11:48:56 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,3 @@ int	ft_putptr(void *ptr)
 	count += ft_puthex((unsigned long) ptr, 'x');
 	return (count);
 }
-/* int main()
-{
-	char *str = "hamza";
-	printf("%p\n", str);
-	ft_putptr (str);
-} */

@@ -6,7 +6,7 @@
 #    By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 10:40:54 by hbousset          #+#    #+#              #
-#    Updated: 2024/12/12 19:07:31 by hbousset         ###   ########.fr        #
+#    Updated: 2024/12/13 11:46:18 by hbousset         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBC = ar rc
 
-RM = rm -fr
+RM = rm -f
 
 all: ${NAME}
 

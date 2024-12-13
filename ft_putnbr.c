@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:38:05 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/05 10:01:04 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/13 11:49:37 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ int	ft_putnbr(int nb)
 	else if (nb < 0)
 	{
 		nb = -nb;
-		size = size + write(1, "-", 1);
-		size = size + ft_putnbr(nb);
+		size += write(1, "-", 1);
+		size += ft_putnbr(nb);
 	}
 	else if (nb > 9)
 	{
-		size = size + ft_putnbr(nb / 10);
-		size = size + ft_putchar((nb % 10) + 48);
+		size += ft_putnbr(nb / 10);
+		size += ft_putchar((nb % 10) + 48);
 	}
 	else
-		size = size + ft_putchar(nb + 48);
+		size += ft_putchar(nb + 48);
 	return (size);
 }

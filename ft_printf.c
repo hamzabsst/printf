@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:16:06 by hbousset          #+#    #+#             */
-/*   Updated: 2024/12/12 19:36:49 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/12/13 11:50:22 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,3 @@ int	ft_printf(const char *format, ...)
 	va_end(arg);
 	return (count);
 }
-/* int main()
-{
-	ft_printf("%d",ft_printf(NULL));
-} */
